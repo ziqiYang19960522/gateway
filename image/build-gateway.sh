@@ -91,6 +91,9 @@ tar czf ${GATEWAY_TARBALL} ${GATEWAY}
 
 # NOTE: We need to use cd (instead of -C) so that the libopenzwave* wildcard
 #       will be expanded properly.
+
+find /usr -name "*zwave*" -ls
+
 OZW_TGZ=$(pwd)/${OPENZWAVE_TARBALL}
 (cd /; tar czf ${OZW_TGZ} usr/include/openzwave usr/lib/libopenzwave* usr/etc/openzwave)
 
