@@ -35,6 +35,8 @@ make -C ${OPEN_ZWAVE} clean
 # Clean any previous node modules
 rm -rf ${GATEWAY}/node_modules
 
+ls -la ${GATEWAY}
+
 # Under rpxc /rpxc/sysroot/usr/lib/arm-linux-gnueabihf/libudev.so is
 # a symlink back to /lib/arm-linux-gnueabihf/libudev.so.1.5.0 which
 # doesn't exist. So we go ahead and create a symlink there and point
