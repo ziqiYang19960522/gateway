@@ -8,8 +8,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-'use strict';
-
+'use strict';   //启用严格模式
+//导入模块
 const page = require('page');
 const Alarm = require('../schema-impl/capability/alarm');
 const API = require('../api');
@@ -36,8 +36,9 @@ const Thing = require('../schema-impl/capability/thing');
 const VideoCamera = require('../schema-impl/capability/video-camera');
 
 // eslint-disable-next-line no-unused-vars
+//Floorplan展示页面
 const FloorplanScreen = {
-
+  //建立坐标
   ORIGIN_X: 6,    // X co-ordinate to start placing un-positioned things from.
   ORIGIN_Y: 7,    // Y co-ordinate to start placing un-positioned things from.
   MAX_X: 100,     // Max X range.
@@ -49,8 +50,9 @@ const FloorplanScreen = {
   */
   init: function() {
     // A list of Things on the floorplan
+    //设备列表
     this.things = [];
-
+    //通过document.getElementById()方法获取页面元素
     this.view = document.getElementById('floorplan-view');
     this.floorplan = document.getElementById('floorplan');
     this.backButton = document.getElementById('back-button');
@@ -71,7 +73,7 @@ const FloorplanScreen = {
     this.interactTimeout = null;
     this.onPointerDown = this.onPointerDown.bind(this);
     this.onPointerUp = this.onPointerUp.bind(this);
-
+    //添加事件监听器
     this.editButton.addEventListener('click', this.edit.bind(this));
     this.doneButton.addEventListener('click', this.done.bind(this));
     this.floorplanBackButton.addEventListener('click', this.done.bind(this));
@@ -532,7 +534,7 @@ const FloorplanScreen = {
 
   /*
    * Send an event into a black hole, never to be seen again.
-   *
+   * 黑洞操作，把动作扔进黑洞导致动作无效
    * @param {Event} e Event to black hole.
    */
   blackHole: (e) => {
